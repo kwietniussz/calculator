@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 45vw;
+    height: 60vh;
+    min-width: 500px;
+    min-height: 600px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 5vh;
+    font-weight: 900;
+}
+
+div {
+    flex-basis: 30%;
+    height: 10%;
+    background-color: #f22;
+    text-align: center;
+    padding: 10px;
+}
+
+div.result~div:hover {
+    background-color: #f00;
+}
+
+div.result {
+    flex-basis: 100%;
+    background-color: #bbb;
+}

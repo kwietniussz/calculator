@@ -17,6 +17,8 @@
     const plusBtn = document.querySelector(".plus");
     const equalBtn = document.querySelector(".equal");
     const c = document.querySelector(".c");
+    const resultArray = [];
+    let operator
 
 
     // number btn
@@ -52,7 +54,7 @@
     zeroBtn.addEventListener('click', function () {
         result.textContent = result.textContent + "0";
     })
-    // function btn
+
 
     c.addEventListener('click', function () {
         result.textContent = "";
@@ -60,51 +62,48 @@
 
     })
     plusBtn.addEventListener('click', function () {
-        let firstResult = result.textContent;
+        resultArray.unshift(Number(result.textContent));
+        operator = "plus";
         result.textContent = "";
-        equalBtn.addEventListener('click', function () {
-            let newResult = result.textContent;
-            let resultPlus = 0
-            resultPlus = parseInt(firstResult) + parseInt(newResult);
-            result.textContent = resultPlus;
-            console.log(firstResult, newResult, resultPlus)
-
-
-        })
     })
 
     minusBtn.addEventListener('click', function () {
-        firstResult = result.textContent;
+        resultArray.unshift(Number(result.textContent));
+        operator = "minus";
         result.textContent = "";
-        equalBtn.addEventListener('click', function () {
-            newResult = result.textContent;
-            resultPlus = parseInt(firstResult) - parseInt(newResult);
-            result.textContent = resultPlus;
-            // firstResult = 0;
-
-        })
     })
 
     multiplyBtn.addEventListener('click', function () {
-        firstResult = result.textContent;
+        resultArray.unshift(Number(result.textContent));
+        operator = "multiply";
         result.textContent = "";
-        equalBtn.addEventListener('click', function () {
-            newResult = result.textContent;
-            resultPlus = parseInt(firstResult) * parseInt(newResult);
-            result.textContent = resultPlus;
-            // firstResult = 0;
-
-        })
     })
 
     divideBtn.addEventListener('click', function () {
-        firstResult = result.textContent;
+        resultArray.unshift(Number(result.textContent));
+        operator = "divide";
         result.textContent = "";
-        equalBtn.addEventListener('click', function () {
-            newResult = result.textContent;
-            resultPlus = parseInt(firstResult) / parseInt(newResult);
-            result.textContent = resultPlus;
-            // firstResult = 0;
+    })
+    equalBtn.addEventListener('click', function () {
+        if (operator === "plus") {
+            resultArray.push(Number(result.textContent));
+            result.textContent = resultArray[0] + resultArray[1];
+            resultArray.splice(0);
+        }
+        if (operator === "minus") {
+            resultArray.push(Number(result.textContent));
+            result.textContent = resultArray[0] - resultArray[1];
+            resultArray.splice(0);
+        }
+        if (operator === "multiply") {
+            resultArray.push(Number(result.textContent));
+            result.textContent = resultArray[0] * resultArray[1];
+            resultArray.splice(0);
+        }
+        if (operator === "divide") {
+            resultArray.push(Number(result.textContent));
+            result.textContent = resultArray[0] / resultArray[1];
+            resultArray.splice(0);
+        }
 
-        })
     })
