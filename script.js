@@ -22,45 +22,20 @@
 
 
     // number btn
+    const numBtns = [oneBtn, twoBtn, threeBtn, fourBtn, fiveBtn, sixBtn, sevenBtn, eightBtn, nineBtn, zeroBtn]
+    numBtns.forEach(function (btn) {
+        btn.addEventListener("click", () => {
+            result.textContent = result.textContent + btn.textContent
+        })
+    })
 
-
-    oneBtn.addEventListener('click', function () {
-        result.textContent = result.textContent + "1";
-    })
-    twoBtn.addEventListener('click', function () {
-        result.textContent = result.textContent + "2";
-    })
-    threeBtn.addEventListener('click', function () {
-        result.textContent = result.textContent + "3";
-    })
-    fourBtn.addEventListener('click', function () {
-        result.textContent = result.textContent + "4";
-    })
-    fiveBtn.addEventListener('click', function () {
-        result.textContent = result.textContent + "5";
-    })
-    sixBtn.addEventListener('click', function () {
-        result.textContent = result.textContent + "6";
-    })
-    sevenBtn.addEventListener('click', function () {
-        result.textContent = result.textContent + "7";
-    })
-    eightBtn.addEventListener('click', function () {
-        result.textContent = result.textContent + "8";
-    })
-    nineBtn.addEventListener('click', function () {
-        result.textContent = result.textContent + "9";
-    })
-    zeroBtn.addEventListener('click', function () {
-        result.textContent = result.textContent + "0";
-    })
 
 
     c.addEventListener('click', function () {
         result.textContent = "";
 
 
-    })
+    });
     plusBtn.addEventListener('click', function () {
         resultArray.unshift(Number(result.textContent));
         operator = "plus";
@@ -83,7 +58,7 @@
         resultArray.unshift(Number(result.textContent));
         operator = "divide";
         result.textContent = "";
-    })
+    });
     equalBtn.addEventListener('click', function () {
         if (operator === "plus") {
             resultArray.push(Number(result.textContent));
